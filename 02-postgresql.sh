@@ -9,3 +9,12 @@ dnf install -y postgresql16-server postgresql16
 
 systemctl enable postgresql-16
 systemctl start postgresql-16
+
+
+sed -i "/listen_addresses/ c listen_addresses = '*'" /var/lib/pgsql/16/data/postgresql.conf
+#sed -i '/replication/! s/peer/trust/' /var/lib/pgsql/16/data/pg_hba.conf
+cp pg_hba.conf /var/lib/pgsql/16/data/pg_hba.conf
+
+systemctl restart postgresql-16
+
+sudo -u postgres /usr/pgsql-16/bin/psql -f schema.sql
