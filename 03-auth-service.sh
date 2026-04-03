@@ -14,7 +14,7 @@ cd /app
 CGO_ENABLED=0 go build -o auth-service ./cmd/server
 
 chown -R appuser:appuser /app
-chmod 777 /app -R
+chmod 755 /app/auth-service
 
 
 systemctl daemon-reload
