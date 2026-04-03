@@ -21,4 +21,4 @@ systemctl daemon-reload
 
 
 systemctl enable auth-service
-systemctl start auth-service
+systemctl restart auth-service
